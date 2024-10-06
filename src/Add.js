@@ -1,5 +1,5 @@
 import React from 'react'
-import {useState} from 'react'
+import { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
 const Add = () => {
@@ -22,13 +22,15 @@ const Add = () => {
         localStorage.setItem("number", Number.parseInt(JSON.parse(localStorage.getItem("number")))+1);
         localStorage.setItem("total", Number.parseInt(JSON.parse(localStorage.getItem("total")))+amount);
         let totals=JSON.parse(localStorage.getItem("totals"));
+        let numbers=JSON.parse(localStorage.getItem("numbers"));
+        numbers[Number.parseInt(category)]=Number.parseInt(numbers[Number.parseInt(category)])+1;
+        localStorage.setItem("numbers", JSON.stringify(numbers));
         totals[Number.parseInt(category)]=Number.parseInt(totals[Number.parseInt(category)])+amount;
         localStorage.setItem("totals", JSON.stringify(totals));
-        history.push('/');
+        history.push('/transactions');
     }
   return (
-    <div className="container">
-        <div className="color-filler hide"></div>
+    <div className="adder">
         <div>
             <h2 className="header">Add Expense</h2>
             <form onSubmit={onSubmit} className="form">
@@ -57,18 +59,18 @@ const Add = () => {
                 <div>
                     <label>Category: 
                         <select value={category} onChange={(e) => setCategory(e.target.value)}>
-                            <option value="0"><i class="fa-solid fa-bowl-food"></i>Food</option> 
-                            <option value="1"><i class="fa-solid fa-shirt"></i>Clothes</option> 
-                            <option value="2"><i class="fa-solid fa-gamepad"></i>Entertainment</option> 
-                            <option value="3"><i class="fa-solid fa-house"></i>Housing</option>
-                            <option value="4"><i class="fa-solid fa-car"></i>Transportation</option>
-                            <option value="5"><i class="fa-solid fa-stethoscope"></i>Health</option>
-                            <option value="6"><i class="fa-solid fa-graduation-cap"></i>Education</option>
-                            <option value="7"><i class="fa-solid fa-face-smile-beam"></i>Personal Care</option>
-                            <option value="8"><i class="fa-solid fa-piggy-bank"></i>Savings</option>
-                            <option value="9"><i class="fa-solid fa-gift"></i>Gifts/Donations</option>
-                            <option value="10"><i class="fa-solid fa-wrench"></i>Maintainance</option>
-                            <option value="11"><i class="fa-solid fa-ellipsis"></i>Miscellaneous</option> 
+                            <option value="0">Food</option> 
+                            <option value="1">Clothes</option> 
+                            <option value="2">Entertainment</option> 
+                            <option value="3">Housing</option>
+                            <option value="4">Transportation</option>
+                            <option value="5">Health</option>
+                            <option value="6">Education</option>
+                            <option value="7">Personal Care</option>
+                            <option value="8">Savings</option>
+                            <option value="9">Gifts/Donations</option>
+                            <option value="10">Maintainance</option>
+                            <option value="11">Miscellaneous</option> 
                         </select>
                     </label>
                 </div>
@@ -80,7 +82,6 @@ const Add = () => {
                 <button type="submit" className="button">Add</button>
             </form>
         </div>
-        <div className="color-filler hide"></div>
     </div>
   )
 }

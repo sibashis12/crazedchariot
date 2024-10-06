@@ -3,6 +3,20 @@ import PieChart from './PieChart';
 import BarChart from './BarChart';
 import LogChart from './LogChart';
 const Visualize = () => {
+    let number=0;
+    if(!localStorage.getItem("number")){
+        localStorage.setItem("number", 0);
+        //localStorage.setItem("completed", 0);
+        localStorage.setItem("expenses", JSON.stringify([]));
+        localStorage.setItem("totals", JSON.stringify([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]));
+        //localStorage.setItem("missed", 0);
+        localStorage.setItem("budget", 1);
+        localStorage.setItem("total", 0);
+        localStorage.setItem("numbers", JSON.stringify([0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]));
+    }
+    else{
+        number=JSON.parse(localStorage.getItem("number"));
+    }
     const dataValues = JSON.parse(localStorage.getItem("totals"));
     const labels = [
         "Food", 
@@ -33,20 +47,24 @@ const Visualize = () => {
         'rgba(255, 20, 147, 1)',   // DeepPink
         'rgba(0, 255, 255, 1)'     // Cyan
     ];
-    return (
-        <div >
-            <div>
-                <h2>Dynamic Logarithmic Bar Chart of expenses</h2>
-                <LogChart chartData={dataValues} chartLabels={labels} chartColors={colors} />
+    return (<div>
+        {number===0 && <div><h1>No transactions yet. Add some from the "Add Expense" page</h1></div>}
+        {number!==0 && <div>
+            <h2 className="header">Visualize</h2>
+                <div className="separate">
+                    <h2>Dynamic Logarithmic Bar Chart of expenses</h2>
+                    <LogChart chartData={dataValues} chartLabels={labels} chartColors={colors} />
                 </div>
-            <div>
-                <h2>Bar Chart of Expenses</h2>
-                <BarChart chartData={dataValues} chartLabels={labels} chartColors={colors} />
+                <div className="separate">
+                    <h2>Bar Chart of Expenses</h2>
+                    <BarChart chartData={dataValues} chartLabels={labels} chartColors={colors} />
+                </div>
+                <div className="separate">
+                    <h2>Pie Chart of Expenses</h2>
+                    <PieChart chartData={dataValues} chartLabels={labels} chartColors={colors} />
+                </div>
             </div>
-            <div>
-                <h2>Pie Chart of Expenses</h2>
-                <PieChart chartData={dataValues} chartLabels={labels} chartColors={colors} />
-            </div>
+        }
         </div>
     );
 }

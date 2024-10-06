@@ -9,16 +9,24 @@ const Navbar = () => {
         <div className="add-button">
           <Switch>
             <Route exact path="/">
-              <Link to='/add'><i className="fa-solid fa-plus scoot" title="Add Expense"></i>Add Expense</Link>
-              <Link to='/visualize'><i className="fa-solid fa-chart-line scoot" title="Visualize"></i>Visualize</Link>
+              <Link to='/add'><i className="fa-solid fa-plus scoot" title="Add Expense"></i><p>Add Expense</p></Link>
+              <Link to='/visualize'><i className="fa-solid fa-chart-line scoot" title="Visualize"></i><p>Visualize</p></Link>
+              <Link to='/transactions'><i className='fa-solid fa-money-bill-transfer scoot' title="Transactions"></i><p>Transactions</p></Link>
             </Route>
             <Route exact path="/add">
-              <Link to='/visualize'><i className="fa-solid fa-chart-line scoot" title="Visualize"></i>Visualize</Link>
-              <Link to='/'><i className="fa-solid fa-house scoot" title="Home"></i>Home</Link>
+              <Link to='/'><i className="fa-solid fa-house scoot" title="Home"></i><p>Home</p></Link>
+              <Link to='/visualize'><i className="fa-solid fa-chart-line scoot" title="Visualize"></i><p>Visualize</p></Link>
+              <Link to='/transactions'><i className='fa-solid fa-money-bill-transfer scoot' title="Transactions"></i><p>Transactions</p></Link>
             </Route>
             <Route exact path="/visualize">
-              <Link to='/'><i className="fa-solid fa-house scoot" title="Home"></i>Home</Link>
-              <Link to='/add'><i className="fa-solid fa-plus scoot" title="Add Expense"></i>Add Expense</Link>
+              <Link to='/'><i className="fa-solid fa-house scoot" title="Home"></i><p>Home</p></Link>
+              <Link to='/add'><i className="fa-solid fa-plus scoot" title="Add Expense"></i><p>Add Expense</p></Link>
+              <Link to='/transactions'><i className='fa-solid fa-money-bill-transfer scoot' title="Transactions"></i><p>Transactions</p></Link>
+            </Route>
+            <Route exact path="/transactions">
+              <Link to='/'><i className="fa-solid fa-house scoot" title="Home"></i><p>Home</p></Link>
+              <Link to='/add'><i className="fa-solid fa-plus scoot" title="Add Expense"></i><p>Add Expense</p></Link>
+              <Link to='/visualize'><i className='fa-solid fa-chart-line scoot' title="Visualize"></i><p>Visualize</p></Link>
             </Route>
             <Route path="*">
               <Link to='/'><i className="fa-solid fa-house scoot" title="Home"></i>Home</Link>
