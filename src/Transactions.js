@@ -1,13 +1,10 @@
 import React from 'react'
 import {useState, useEffect} from 'react'
 import {useHistory} from 'react-router-dom'
-// import Complete from './Complete'
-import {Link} from 'react-router-dom'
 const Transactions = () => {
   const history = useHistory();
   const [budget, setBudget] = useState(1);
   const [total, setTotal] = useState(0);
-  let percentage=0;
   const categories=[["Food", "fa-bowl-food"], ["Clothes", "fa-shirt"], ["Entertainment", "fa-gamepad"], ["Housing", "fa-house"], ["Transportation", "fa-car"], ["Health", "fa-stethoscope"], ["Education", "fa-graduation-cap"], ["Personal Care", "fa-face-smile-beam"], ["Savings", "fa-piggy-bank"], ["Gifts/Donations", "fa-gift"], ["Maintainance", "fa-wrench"], ["Miscellaneous", "fa-ellipsis"]];
   // function sort(array){
   //   //insertion sort algorithm to enter element into array
