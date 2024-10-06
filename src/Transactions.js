@@ -91,7 +91,6 @@ const Transactions = () => {
       setNumber(Number.parseInt(JSON.parse(localStorage.getItem("number"))));
       setBudget(Number.parseInt(JSON.parse(localStorage.getItem("budget"))));
       setTotal(Number.parseInt(JSON.parse(localStorage.getItem("total"))));
-      percentage=total/budget*100;
       // setCompleted(Number.parseInt(JSON.parse(localStorage.getItem("completed"))));
       // setMissed(Number.parseInt(JSON.parse(localStorage.getItem("missed"))));
     }
