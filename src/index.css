@@ -9,6 +9,9 @@
   text-align:center;
   color:inherit;
 }
+.container{
+  background: linear-gradient(to right, white, aliceblue);
+}
 .green{
   color:green;
   font-size:inherit;
@@ -27,7 +30,7 @@
   align-items: center;
   padding: 2rem; 
   border-radius: 10px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
   margin:5rem;
   min-width:20%;
   height: 70vh;
@@ -322,7 +325,7 @@ input:focus{
   align-items: center;
   padding: 2rem; 
   border-radius: 10px; 
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); 
   margin:3rem;
   min-width:20%;
   height: 50vh;

@@ -55,7 +55,7 @@ const Transactions = () => {
       localStorage.setItem("numbers", JSON.stringify(numbers));
       localStorage.setItem("number", Number.parseInt(localStorage.getItem("number"))-1);
       localStorage.setItem("expenses", JSON.stringify(cexpenses));
-      history.go(0);
+      history.push('/transactions');
 }
   const [expenses, setExpenses]=useState([]);
   const [number, setNumber]=useState(0);
